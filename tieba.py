@@ -63,7 +63,7 @@ def writeImage(link):
 
     filename = link[-10:]
 
-    path_list = ['F:\Users\Cc\Desktop\python\爬虫\lxml爬取图片',filename]
+    path_list = ['C:\Users\Cc\Desktop\lxml爬取图片',filename]
 
     # 创造想要存储的路径,,以后可以随便改了
 
