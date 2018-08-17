@@ -38,7 +38,7 @@ def loadImage(link):
     html = urllib2.urlopen(request).read()
     # 解析
     content = etree.HTML(html)
-    # 取出帖子里每层层主发送的图片连接集合
+    # 取出帖子里每层层主发送的图片连接集合，下面的不能用了
     #link_list = content.xpath('//img[@class="BDE_Image"]/@src')
     # link_list = content.xpath('//div[@class="post_bubble_middle"]')
     link_list = content.xpath('//img[@class="BDE_Image"]/@src')
@@ -63,14 +63,20 @@ def writeImage(link):
 
     filename = link[-10:]
 
-    path_list = ['C:\Users\Cc\Desktop\lxml爬取图片',filename]
-
     # 创造想要存储的路径,,以后可以随便改了
+    path_list = ['C:\Users\Cc\Desktop\lxml',filename]
 
+    
     # 也可这样用：  open(item['subFilename']+'/'+filename, 'w')
-    head = ''
+    # 爬取的文件在当前.py文件目录下
+    # head = ''
+    # for path in path_list:
+    # 	endfilename = os.path.join(head,path)
+    
+    # 爬取的文件在上面制定的目录中
+    endfilename = ''
     for path in path_list:
-    	endfilename = os.path.join(head,path)
+        endfilename = os.path.join(endfilename,path)
 
     # 写入到本地磁盘文件内
     with open(endfilename, "wb") as f:
